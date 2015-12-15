@@ -1,0 +1,153 @@
+{% extends "header.html" %}
+{% block header %}
+    <link rel="stylesheet" type="text/css" href="{{static_url('css/plans.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{static_url('css/font-awesome.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{static_url('css/default.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{static_url('css/component.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{static_url('css/daterangepicker-bs3.css')}}">
+{% end %}
+{% block body %}
+    <div class="container moreMargin">
+        <div class="container moreMargin">
+            <div class="row moreMargin">
+            <div class="col-xs-6 col-sm-4 col-md-3 ">
+                <img class="alignCenter img-circle picsize" style="width:200px;height:200px;" id="user_portrait" src="/static/images/pic.svg">
+            </div>
+            <div class="col-xs-6 col-sm-8 col-sm-offset-0 col-md-9 fontStyle">
+                <h3 id="user_name">Your Name</h3>
+                <p id="user_signature">Signature:lalalalalala</p>
+                <a href="/plans/Info"><span class="icon-edit"></span>修改个人信息</a>
+            </div>
+        </div>
+        
+        <div class="row moreMargin">
+            <div class="col-sm-10 col-xs-12">
+                <div class="tabbable">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-4 col-xs-12 nopadidng">
+                            <ul class="nav tabFocus" role="tablist" id="afontsize">
+                                <li role="presentation" class="active">
+                                    <a  class="a-active" id="tab1" href="#8" data-toggle="tab">添加健身计划</a>
+                                </li>
+                                <li  role="presentation" class>
+                                    <a id="tab2" href="#9" data-toggle="tab">查看历史计划</a>
+                                </li>
+                                <li role="presentation">
+                                    <a id="tab3" href="#20" data-toggle="tab">查看历史动态</a>
+                                </li>
+                                <li  role="presentation" class>
+                                    <a id="tab3" href="#10" data-toggle="tab">查看推荐计划</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-10 col-sm-8 col-xs-12 nopadidng">
+                            <div class="tab-content chuo">
+                                <div id="8" role="tabpanel" class="tab-pane active tabBC1" id="8">
+                                    <h4>填写专属你的健身计划(・∀・*)</h4>
+                                    <p>从一份计划开始改变吧~坚持就是胜利</p>
+                                    <a class="tabA" id="to-make" href="#">戳我戳我</a>
+                                </div>
+                                <div id="9"role="tabpanel" class="tab-pane tabBC1" id="">
+                                    <h4>查看我的历史计划(*¯︶¯*)</h4>
+                                    <p>那些年我制定过的计划们~</p>
+                                    <p>
+                                        <a class="tabA" id="to-plans" href="#">戳我戳我</a></p>
+                                    </div>
+                                    <div id="20"role="tabpanel" class="tab-pane tabBC1" id="">
+                                        <h4>查看我的历史动态(〃・ｏ・〃)</h4>
+                                        <p>翻翻我的过去~</p>
+                                        <p>
+                                            <a class="tabA" id="to-states" href="#">戳我戳我</a></p>
+                                        </div>
+                                        <div id="10" role="tabpanel" class="tab-pane tabBC1" id="">
+                                            <h4>看看推荐给我的计划( ˘•ω•˘ )</h4>
+                                            <p>不知道怎么制定计划？这里有参考~</p>
+                                            <p><a class="tabA" id="tab4" href="#">戳我戳我</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pages" id="newPlan">
+                    <h1>Make a Plan</h1>
+                    <ul id="myTab" class="nav nav-tabs">
+                        <li role="presentation" class="active"><a href="#summary" data-toggle="tab">Plan</a></li>
+                        <li role="presentation"><a href="#1" data-toggle="tab">Monday</a></li>
+                        <li role="presentation"><a href="#2" data-toggle="tab">Tuesday</a></li>
+                        <li role="presentation"><a href="#3" data-toggle="tab">Wednesday</a></li>
+                        <li role="presentation"><a href="#4" data-toggle="tab">Thursday</a></li>
+                        <li role="presentation"><a href="#5" data-toggle="tab">Friday</a></li>
+                        <li role="presentation"><a href="#6" data-toggle="tab">Saturday</a></li>
+                        <li role="presentation"><a href="#7" data-toggle="tab">Sunday</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="summary">
+                            <div class="col-sm-8 labelsize">
+                                <div class="form-inline mySum">
+                                    <div class="col-sm-12 col-xs-12">
+                                        <label>我的目标</label>
+                                        <input type="text" id = "Target" class="myTitle" placeholder="Target">
+                                    </div>
+                                </div>
+                                <div class="form-inline mySum">
+                                    <div class="col-sm-12">
+                                        <label class="control-label" for="reservationtime">计划时间段</label>
+                                        <input type="text" readonly name="reservation" id="reservation" class="timeInput" value="2015-9-21 - 2015-10-21" />
+                                    </div>
+                                </div>
+                                <div class="form-inline mySum">
+                                    <div class="col-sm-12">
+                                        <label>计划宣言</label>
+                                        <input type="text" id="signature" class="myTitle" placeholder="Say something to yourself">
+                                    </div>
+                                </div>
+                                <div class="form-inline mySum">
+                                    <div class="col-sm-12 col-xs-12 fightlabel">
+                                        <label>到Tab-Sunday提交计划噢！加油 ( • ̀ω ⁃᷄)✧</label>
+                                        <img class="duang-small-show col-xs-offset-9" src="/static/images/2.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-xs-6 duang-hide">
+                                <img id="duangpic" src="/static/images/2.png">
+                            </div>
+                        </div>
+                        {% module plan_item(1,1) %}
+                        {% module plan_item(2,2) %}
+                        {% module plan_item(3,3) %}
+                        {% module plan_item(4,4) %}
+                        {% module plan_item(5,5) %}
+                        {% module plan_item(6,6) %}
+                        {% module plan_item(7,7) %}
+                    </div>
+                </div>
+                <div class="container planMargin" id="myplans">
+                    <h1>My Plans</h1>
+                    <div class="main">
+                        <ul class="cbp_tmtimeline" id="myTab_plan_show">
+                            
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="container stateMargin" id="mystates">
+                    <h1>My States</h1>
+                    <div class="main">
+                        <ul class="cbp_tmtimeline" id="my_state_show">
+
+                        </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    {% if user %}
+                        <input type="hidden" id="uid" value="{{user.uid}}">
+                    {% end %}
+                    <script type="text/javascript" src="{{static_url('js/moment.min.js')}}"></script>
+                    <script type="text/javascript" src="{{static_url('js/daterangepicker.js')}}"></script>
+                    <script type="text/javascript" src="{{static_url('js/jquery.scrollTo.js')}}"></script>
+                    <script type="text/javascript" src="{{static_url('js/plans.js')}}"></script>
+                    <script type="text/javascript" src="{{static_url('js/jquery.smooth-scroll.min.js')}}"></script>
+                {% end %}

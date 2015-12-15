@@ -1,0 +1,56 @@
+{% for item in content['content'] %}
+    <li class="nextMargin">
+        <time class="cbp_tmtime" >
+            <span>{{item['create_y']}}
+            </span>
+             <span class="fontSize">{{item['create_h']}}</span></time>
+            <div class="cbp_tmicon cbp_tmicon-phone"></div>
+            <div class="cbp_tmlabel">
+                <div class="protect">
+                    <ul id="myTab" class="nav nav-tabs">
+                        <li role="presentation" class="active"><a href="#{{item['_id']}}0" data-toggle="tab">Plan</a></li>
+                        <li role="presentation"><a href="#{{item['_id']}}1" data-toggle="tab">Monday</a></li>
+                        <li role="presentation"><a href="#{{item['_id']}}2" data-toggle="tab">Tuesday</a></li>
+                        <li role="presentation"><a href="#{{item['_id']}}3" data-toggle="tab">Wednesday</a></li>
+                        <li role="presentation"><a href="#{{item['_id']}}4" data-toggle="tab">Thursday</a></li>
+                        <li role="presentation"><a href="#{{item['_id']}}5" data-toggle="tab">Friday</a></li>
+                        <li role="presentation"><a href="#{{item['_id']}}6" data-toggle="tab">Saturday</a></li>
+                        <li role="presentation"><a href="#{{item['_id']}}7" data-toggle="tab">Sunday</a></li>
+                    </ul>
+                    <div class="tab-content tabBelow">
+                        <div role="tabpanel" class="tab-pane active" id="{{item['_id']}}0">
+                            <div class="col-sm-8 oneRow">
+                                <div class="form-inline">
+                                    <div class="col-sm-12">
+                                        <label>我的目标</label>
+                                        <input type="text" class="userInput3" placeholder="Target" readOnly value="{{item['content']['target']}}">
+                                    </div>
+                                </div>
+                                <div class="form-inline">
+                                    <div class="col-sm-12 timePick">
+                                        <label class="control-label" for="reservationtime">计划时间段</label>
+                                        <div class="input-prepend input-group moreLength">
+                                            <input disabled="disabled" type="text"  name="reservation" id="reservationtime1" class="userInput3-more" value="{{item['content']['start_time']}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-inline">
+                                    <div class="col-sm-12">
+                                        <label>计划宣言</label>
+                                        <input type="text" class="userInput3" placeholder="Say something to yourself" readOnly value="{{item['content']['signature']}}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% module plan_show_item('1',item) %}
+                        {% module plan_show_item('2',item) %}
+                        {% module plan_show_item('3',item) %}
+                        {% module plan_show_item('4',item) %}
+                        {% module plan_show_item('5',item) %}
+                        {% module plan_show_item('6',item) %}
+                        {% module plan_show_item('7',item) %}
+                    </div>
+                </div>
+            </div>
+        </li>
+{% end %}

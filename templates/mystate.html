@@ -1,0 +1,25 @@
+{% if content['code'] == 200 %}
+    {% for item in content['content'] %}
+        <li class="nextMargin">
+            <time class="cbp_tmtime" ><span>
+                {{item['time_y']}}</span> <span class="fontSize">{{item['time_h']}}</span></time>
+                <div class="cbp_tmicon cbp_tmicon-phone"></div>
+                <div class="cbp_tmlabel">
+                    <div class="protect col-sm-8">
+                        <h2>{{item['topic_title']}}</h2>
+                        <p>{{item['topic_content']}}</p>
+                        <p><span class="icon_list icon-heart"></span>
+                            {% if len(item['topic_starers']['content']) < 1 %}
+                                木有赞的人啦
+                            {% else %}
+                                {% for i in item['topic_starers']['content'] %}
+                                    <a href="/user/userinfo/{{i['uid']}}">{{i['name']}}</a>
+                                {% end %}
+                            {% end %}
+                        </p>
+                    </div>
+                </div>
+            </li>
+    {% end %}
+{% else %}
+{% end %}

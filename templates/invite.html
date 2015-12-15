@@ -1,0 +1,285 @@
+{% extends "header.html" %}
+{% block header %}
+    <link rel="stylesheet" type="text/css" href="{{static_url('css/bootstrap-datetimepicker.min.css') }}">
+    <link rel="stylesheet" href="{{static_url('css/invite.css') }}">
+    <script src="{{static_url('js/bootstrap-datetimepicker.js') }}"></script>
+    <script src="{{static_url('js/invite.js') }}"></script>
+{% end %}
+{% block body %}
+    <div id="invite">
+        
+        <div id="invite_pic_div">
+            <img src="/static/images/invite.jpg"id="invite_pic">
+        </div>
+        
+        <div class="title_div">
+            <p class="largetext" id="invite_title">
+                Life is short. Have a
+                <strong>Better Run</strong>
+                .
+            </p>
+        </div>
+        <div class="container create_invite">
+            <div class="row button">
+                <div class="form-group col-sm-2 col-sm-offset-2 col-xs-4 " id="invite_message_btn"  >
+                    <a href="#invite_title">
+
+                        <label ><span class="icon-lightbulb"></span>新消息</label>
+                    </a>
+                </div>
+                <div class="form-group col-sm-4 col-xs-4 " id="invite_new_btn"  >
+                    <a href="#invite_title">
+                        <label ><span class="icon-user"></span>约健身</label>
+                    </a>
+                </div>
+                <div class="form-group col-sm-2 col-xs-4 " id="invite_message_all_btn"  >
+                    <a href="#invite_title">
+                        <label ><span class="icon-exchange"></span>消息列表</label>
+                    </a>
+                </div>
+            </div>
+        </div>
+         
+        <div id="invite_message_list" class="container">
+            
+        </div>
+        <div id="invite_message_all_list" class="container">
+            
+        </div>
+        <div id="create_new_invite">
+            <div class="row" >
+                <div class="col-sm-6 col-sm-offset-2">
+                    <div class="row" >
+                        <div class="col-sm-4 col-xs-6">
+                            <span class="create_invite">Where:</span>
+                            <div class="have_icon">
+                                <span class="icon  icon-map-marker"></span>
+                                <select class="form-control styled-select" id="create_fit_location">
+                                    <option class="option-color">Location</option>
+                                    <option class="option-color">梅园操场</option>
+                                    <option class="option-color">桃园操场</option>
+                                    <option class="option-color">橘园操场</option>
+                                    <option class="option-color">梅园宿舍</option>
+                                    <option class="option-color">桃园宿舍</option>
+                                    <option class="option-color">桔园宿舍</option>
+                                    <option class="option-color">东门</option>
+                                    <option class="option-color">钢铁大菊花</option>
+                                    <option class="option-color">网球场</option>
+                                    <option class="option-color">桃园篮球场</option>
+                                    <option class="option-color">图书馆</option>
+                                    <option class="option-color">大活</option>
+                                    <option class="option-color">焦廷标馆</option>
+                                    <option class="option-color">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-6">
+                            <span class="create_invite">What:</span>
+                            <div class="have_icon">
+                                <span class="icon  icon-lightbulb"></span>
+                                <select class="form-control styled-select" id="create_fit_item">
+                                    <option class="option-color">Fit Item</option>
+                                    <option class="option-color">Run</option>
+                                    <option class="option-color">Press-up</option>
+                                    <option class="option-color">Table Tennis</option>
+                                    <option class="option-color">Swimming</option>
+                                    <option class="option-color">Badminton</option>
+                                    <option class="option-color">Cycling</option>
+                                    <option class="option-color">Tennis</option>
+                                    <option class="option-color">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-4 col-xs-6">
+                            <span class="create_invite">Who:</span>
+                            <div class="have_icon">
+                                <span class="icon  icon-group"></span>
+                                <select class="form-control styled-select" id="create_gender">
+                                    <option class="option-color">Gender</option>
+                                    <option class="option-color">Female</option>
+                                    <option class="option-color">Male</option>
+                                    <option class="option-color">Other</option>
+                                    <option class="option-color">Unlimited</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-6">
+                            <span class="create_invite">When:</span>
+                            <div class="have_icon">
+                                <span class="icon  icon-calendar"></span>
+                                <input  size="16" type="text" readonly class="form-control" id="create_invite_start_time"placeholder="Start time">
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-4 col-xs-6">
+                            <span class="create_invite">How long:</span>
+                            <div class="have_icon">
+                                <span class="icon   icon-time"></span>
+                                <select class="form-control styled-select" id="create_duration">
+                                    <option class="option-color">Duration</option>
+                                    <option class="option-color">less than 30 min</option>
+                                    <option class="option-color">30min</option>
+                                    <option class="option-color">45min</option>
+                                    <option class="option-color">60min</option>
+                                    <option class="option-color">More than 60min</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-4 col-xs-6">
+                            <span class="create_invite">Which:</span>
+                            <div class="have_icon">
+                                <span class="icon   icon-tag"></span>
+                                <input type="text" class="form-control" id="create_invite_tag" placeholder="加个标签">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class='row' >
+                        <div class="col-sm-12 col-xs-12">
+                            <span class="create_invite creat">(づ￣ 3￣)づ</span>
+                            <div class="have_icon">
+                                <span class="icon   icon-comments"></span>
+                                <input type="text" class="form-control" id="create_invite_more" placeholder="快说~还有什么更多要求。。。">
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="row">
+                        <div class="col-sm-12 " id="invite_png">
+                            <img src="/static/images/invite/2.png">
+                        </div>
+                        <div class="col-sm-8 wrong_message">
+                            <div class="alert alert-danger showing" id="create_invite_information_message">Wrong information.</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-offset-2" id="submit_invite_btn">
+                                <button  type="submit" id="NewButton" class="btn btn-default">发表请求</button>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='container search_invite '>
+            <div class='row'>
+                <div class="col-sm-2 "></div>
+                <!--      <div class="col-sm-3 invite_block"></div> -->
+                <div class="col-sm-8 ">
+                    <div class="input-group have_icon search_invite_group">
+                        <span class="icon   icon-search"></span>
+                        <input type="text" class="form-control" aria-label="Search" id="search_invite_tag" placeholder="搜搜别人的约健身请求~">
+                        
+                        
+                        <span class="input-group-addon btn" id="search_btn" ><a href="#invite_title">Go! </a></span>
+                        
+                        
+                        <span class="input-group-addon btn btn-danger" id="search_more_btn"><a href="#invite_title">高级搜索</a></span>
+                        
+                    </div>
+                </div>
+                
+            </div>
+            <div id="invite_more_detail">
+                <div class='row' >
+                    <div class="col-sm-2 col-sm-offset-2  col-xs-6">
+                        <span class="search_invite">Where:</span>
+                        <div class="have_icon">
+                            <span class="icon  icon-map-marker"></span>
+                            <select class="form-control styled-select" id="fit_location">
+                                <option class="option-color">Location</option>
+                                <option class="option-color">梅园操场</option>
+                                <option class="option-color">桃园操场</option>
+                                <option class="option-color">橘园操场</option>
+                                <option class="option-color">梅园宿舍</option>
+                                <option class="option-color">桃园宿舍</option>
+                                <option class="option-color">桔园宿舍</option>
+                                <option class="option-color">东门</option>
+                                <option class="option-color">钢铁大菊花</option>
+                                <option class="option-color">网球场</option>
+                                <option class="option-color">桃园篮球场</option>
+                                <option class="option-color">图书馆</option>
+                                <option class="option-color">大活</option>
+                                <option class="option-color">焦廷标馆</option>
+                                <option class="option-color">Other</option>
+                                <option class="option-color">Unlimited</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-2  col-xs-6">
+                        <span class="search_invite">What:</span>
+                        <div class="have_icon">
+                            <span class="icon   icon-lightbulb"></span>
+                            <select class="form-control styled-select" id="fit_item">
+                                <option class="option-color">Fit Item</option>
+                                <option class="option-color">Run</option>
+                                <option class="option-color">Press-up</option>
+                                <option class="option-color">Table Tennis</option>
+                                <option class="option-color">Swimming</option>
+                                <option class="option-color">Badminton</option>
+                                <option class="option-color">Cycling</option>
+                                <option class="option-color">Tennis</option>
+                                <option class="option-color">Other</option>
+                                <option class="option-color">Unlimited</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-2  col-xs-6">
+                        <span class="search_invite">Who:</span>
+                        <div class="have_icon">
+                            <span class="icon  icon-group"></span>
+                            <select class="form-control styled-select" id="gender">
+                                <option class="option-color">Gender</option>
+                                <option class="option-color">Female</option>
+                                <option class="option-color">Male</option>
+                                <option class="option-color">Other</option>
+                                <option class="option-color">Unlimited</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <div class="col-sm-2  col-xs-6">
+                        <span class="search_invite">When:</span>
+                        <div class="have_icon">
+                            <span class="icon  icon-calendar"></span>
+                            <input  size="16" type="text" readonly class="form-control" id="search_invite_start_time"placeholder="Start time">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="container container_timeline">
+<div class="list_name">
+<p class="list_name_p">健身请求列表</p>
+
+</div>
+
+<ul id="timeline" class="timeline">
+
+    
+</ul>
+</div>
+<div class="container container_timeline">
+    <div class="list_name_tuijian">
+<p class="list_name_p">健身推荐列表</p>
+
+</div>
+<ul id="timeline_tuijian" class="timeline">
+
+</ul>
+</div>
+<div class="none_">
+    </div>
+<script src="{{static_url('js/inviteController.js') }}"></script>
+{% end %}

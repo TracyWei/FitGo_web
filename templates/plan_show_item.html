@@ -1,0 +1,44 @@
+<div role="tabpanel" class="tab-pane fade" id="{{content['_id']}}{{content_id}}">
+    <div class="form-in-line line">
+        <div class="yesShow_below">
+            {% if content_id in content['content'].keys() %}
+                <div class="form-inline oneRow">
+                    <div class="col-sm-10 col-md-10 line1">
+                        <label>有氧运动</label>
+                        <input id="oxygen" class="userInput2" placeholder="{{content['content'][str(content_id)]['selectValue'][0]}}" readOnly>
+                        <input class="number2" placeholder="{{content['content'][str(content_id)]['selectValue'][1]}}" readOnly>
+                        <input type="text" class="userInput2" value="{{content['content'][str(content_id)]['inputValue'][0]}}" readOnly>
+                        <input class="number2" placeholder="{{content['content'][str(content_id)]['selectValue'][2]}}" readOnly>
+                    </div>
+                </div>
+                
+                <div class="form-inline">
+                    <div class="col-sm-10 col-md-10 line1">
+                        <label>无氧运动</label>
+                        <input class="userInput2" placeholder="{{content['content'][str(content_id)]['selectValue'][3]}}" readOnly>
+                        <input class="number2" placeholder="{{content['content'][str(content_id)]['selectValue'][4]}}" readOnly>
+                        <label>x</label>
+                        <input class="number2" placeholder="{{content['content'][str(content_id)]['selectValue'][5]}}" readOnly>
+                        <input type="text" class="userInput2" value="{{content['content'][str(content_id)]['inputValue'][1]}}" readOnly>
+                        <input class="number2" placeholder="{{content['content'][str(content_id)]['selectValue'][6]}}" readOnly>
+                        <label>x</label>
+                        <input class="number2" placeholder="{{content['content'][str(content_id)]['selectValue'][7]}}" readOnly>
+                    </div>
+                </div>
+                <div class="form-inline">
+                    <div  class="col-sm-10 col-md-10 line1">
+                        <label>拉伸运动</label>
+                        <input id="oxygen" class="userInput2" placeholder="{{content['content'][str(content_id)]['selectValue'][8]}}" readOnly>
+                        <input class="number2" placeholder="{{content['content'][str(content_id)]['selectValue'][9]}}" readOnly>
+                        <input type="text" class="userInput2" value="{{content['content'][str(content_id)]['inputValue'][2]}}" readOnly>
+                        <input class="number2" placeholder="{{content['content'][str(content_id)]['selectValue'][10]}}" readOnly>
+                    </div>
+                </div>
+        {% else %}
+        <div>
+            <p  id="noplan">aaa-oh!NO PLAN TODAY!⊙ω⊙</p>
+        </div>
+        {% end %}
+        </div>
+    </div>
+</div>

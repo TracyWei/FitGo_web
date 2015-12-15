@@ -1,0 +1,42 @@
+{% if ret["code"] == 200 %}
+    {% if len(ret['content']) < 1 %}
+        <li class="wrong_message" >
+            <div class="content">
+                <b></b>
+                <h3>I'm Sorry.T_T.We Can't find anyone.</h3>
+                <p>cannot find</p>
+            </div>
+        </li>
+
+    {% else %}
+    	{% for item in ret["content"] %}
+    		<li id="{{item['_id']}}" >
+                <div class="check">
+                    <s></s>
+                </div>
+                <div class="thumb">
+                    <a href="/user/userinfo/{{item['uid']}}"><img src="{{item['portrait']}}" class="user_index" value="{{item['uid']}}"/></a>
+                    <span>{{item['create_time']}}</span>
+                </div>
+                <div class="content">
+                    <b></b>
+                    <h3>项目：{{item['fit_item']}}</h3>
+                    <h4>开始时间：{{item['start_time']}}+{{item['duration']}}</h4>
+                        <h4>地点：{{item['fit_location']}}</h4>
+                        <button class="btn btn-danger confirm_invite" value="{{item['_id']}}">约！</button>
+                    <p>标签：{{item['user_tag']}}</p>
+                    <p>{{item['remark']}}<p>
+                        
+                </div>
+            </li>
+	   {% end %}	
+    {% end %}
+{% else %}
+	<li class="wrong_message" >
+            <div class="content">
+                <b></b>
+                <h3>I'm Sorry.T_T.Something is Wrong!</h3>
+                <p>cannot find</p>
+            </div>
+        </li>
+{% end %}

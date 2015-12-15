@@ -1,0 +1,49 @@
+<table class="table table-hover row">
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>发起者</th>
+            <th>联系方式</th>
+            <th>响应者</th>
+            <th>联系方式</th>
+            <th class="invite_message_item">项目</th>
+            <th class="invite_message_location">地点</th>
+            <th class="invite_message_time">时间</th>
+            <th >状态</th>
+        </tr>
+    </thead>
+{% if content['code'] == 200 %}
+    {% for item in range(len(content['agree_list'])) %}
+        <tbody>
+            <tr>
+                <th scope="row">{{item+1}}</th>
+                <td>{{content['agree_list'][item]['respond_name']}}</td>
+                <td>{{content['agree_list'][item]['respond_phone']}}</td>
+                <td >{{content['agree_list'][item]['request_name']}}</td>
+                <td >{{content['agree_list'][item]['request_phone']}}</td>
+                <td class="invite_message_item">{{content['agree_list'][item]['fit_item']}}</td>
+                <td class="invite_message_location">@{{content['agree_list'][item]['fit_location']}}</td>
+                <td class="invite_message_time">{{content['agree_list'][item]['start_time']}}</td>
+                <td>同意</td>
+            </tr>
+        </tbody>
+    {% end %}
+    {% for item in range(len(content['disagree_list'])) %}
+        <tbody>
+            <tr>
+                <th scope="row">{{item+1}}</th>
+                <td>{{content['disagree_list'][item]['respond_name']}}</td>
+                <td>{{content['disagree_list'][item]['respond_phone']}}</td>
+                <td >{{content['disagree_list'][item]['request_name']}}</td>
+                <td >{{content['disagree_list'][item]['request_phone']}}</td>
+                <td class="invite_message_item">{{content['disagree_list'][item]['fit_item']}}</td>
+                <td class="invite_message_location">@{{content['disagree_list'][item]['fit_location']}}</td>
+                <td class="invite_message_time">{{content['disagree_list'][item]['start_time']}}</td>
+                <td>拒绝</td>
+            </tr>
+        </tbody>
+    {% end %}
+{% else %}
+    <p>{{content['content']}}</p>
+{% end %}
+</table>

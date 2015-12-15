@@ -1,0 +1,79 @@
+<script src="{{/static/js/unslider.min.js')}}"></script>
+<style type="text/css">
+.banner{
+	position: relative;
+	overflow: auto;
+
+}
+.banner li{
+	list-style: none;
+}
+.banner ul li{
+	float: left;
+}
+.banner .dots {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 20px;
+        color:red;
+    }
+.banner .dots li {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin: 0 4px;
+
+            text-indent: -999em;
+
+            border: 2px solid #fff;
+            border-radius: 6px;
+
+            cursor: pointer;
+            opacity: .4;
+
+            -webkit-transition: background .5s, opacity .5s;
+            -moz-transition: background .5s, opacity .5s;
+            transition: background .5s, opacity .5s;
+        }
+.banner .dots li.active {
+                background: #fff;
+                opacity: 1;
+            }
+.banner .arrows {
+        position: absolute;
+        bottom: 20px;s
+        right: 20px;
+        color: #fff;
+    }
+.banner .arrow {
+            display: inline;
+            padding-left: 10px;
+            cursor: pointer;
+        }
+</style>
+<div class="banner">
+	<ul>
+		<li>This is a slide.</li>
+		<li>This is another slide.</li>
+		<li>This is a slide again.</li>
+	</ul>
+	<a href="#" class="unslider-arrow prev">Previous slide</a>
+	<a href="#" class="unslider-arrow next">Next slide</a>
+</div>	
+<script type="text/javascript">
+$(function(){
+        $('.banner').unslider({arrows: true,
+            delay:1000000,
+            keys: true,
+            fluid: true,
+            dots: true
+        });
+        $('.unslider-arrow').click(function() {
+        var fn = this.className.split(' ')[1];
+
+        //  Either do unslider.data('unslider').next() or .prev() depending on the className
+        unslider.data('unslider')[fn]();
+        });
+    });
+</script>

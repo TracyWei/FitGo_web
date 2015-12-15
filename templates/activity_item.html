@@ -1,0 +1,44 @@
+{% if ret["code"]==200 %}
+    {% if len(ret['content']) < 1 %}
+        <div class="cd-timeline-block">
+            <div class="cd-timeline-img cd-picture1">
+                <span id="icon" class="icon-bell-alt"></span>
+            </div>
+            <div class="cd-timeline-content block-left">
+                <h2>No Activity now!</h2>
+                <p>猛戳"发起活动"~Create one!</p>
+                <span class="cd-date" id="time"></span>
+            </div>
+            <div class="toright" >
+                
+            </div>
+        </div>
+    {% else %}
+
+            {% for item in range(len(ret['content'])) %}
+            <div class="cd-timeline-block">
+            <div class="cd-timeline-img cd-picture{{item%2+1}}">
+                <span id="icon" class="icon-{{icon[num[item]]}} icon-size"></span>
+            </div>
+            <div class="cd-timeline-content block-left">
+                <p style="font-size:1rem;"><span>location:{{ret['content'][item]['location']}} </span><span>duration:{{ret['content'][item]['start']}}\{{ret['content'][item]['end']}} </span></p>
+                <h2>{{ret['content'][item]['title']}}</h2>
+                <p>{{ret['content'][item]['detail']}}</p>
+                <a href="#" class="cd-read-more" target="_blank">阅读全文</a>
+                <a class="join" value="{{ret['content'][item]['id']}}"><span class="icon-plus"></span>加入</a>
+                <span class="cd-date time-size" id="time">{{ret['content'][item]['create_time']}}</span>
+            </div>
+            <div class="toright" id="{{ret['content'][item]['id']}}">
+               {% module act_join_people(ret['content'][item]['join_uid']) %}
+            </div>
+        </div>
+            {% end %}
+    {% end %}
+{% else %}
+<div class="alert alert-danger alert-dismissable" id="error_message">
+    <button type="button" class="close"  data-dismiss="alert" aria-hidden="true">
+                              &times;
+    </button>
+    <div id="error_message_content">{{ret['content']}}</div>
+</div>
+{% end %}

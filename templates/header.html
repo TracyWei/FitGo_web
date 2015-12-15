@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="toTop" content="true">
+        <link rel="icon" href="{{static_url('images/ourlogo1.ico') }}" type="image/x-icon">
+        <link rel="stylesheet" href="{{static_url('css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{static_url('css/homepage.css') }}">
+        <link rel="stylesheet" href="{{static_url('css/login.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{static_url('css/footer.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{static_url('css/font-awesome.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{static_url('css/home_2c89410.css') }}">
+        <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+        <script src="{{static_url('js/jquery-1.11.3.min.js') }}"></script>
+        <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+        
+        <script src="{{static_url('js/bootstrap.min.js') }}"></script>
+        {% block header %}
+        {% end %}
+        <title>FitGo</title>
+    </head>
+    <body>
+        <div id="menu">
+            <nav id="navigation" class="navbar navbar-default" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">
+                            <img id="logo" src="/static/images/logo-55.png" alt="FitGo" title="FitGo" >
+                        </a>
+                    </div>
+                    <div id="navbar" class="collapse navbar-collapse" style="align:right">
+                        <ul  id="different" class="nav navbar-nav navbar-right ">
+                            <li><a class=" bar home" href="/">HOME</a></li>
+                            <li><a class="bar " href="/invite/user_page">INVITE</a></li>
+                            <li><a class="bar " href="/activity">ACTIVITIES</a></li>
+                            <li><a class="bar " href="/discover/discover_page">DISCOVER</a></li>
+                            <li><a class="bar" href="/plans">ME</a></li>
+                            <li id="moredown" style="z-index:20;"><a id="morecolor" class="bar" href="">MORE</a>
+                            <ul class="absoluteul">
+                                <li id="show-introduce">About us</li>
+                                <li id="move-to-contact">Contact us</li>
+                                <li >Help me</li>
+                            </ul>
+                        </li>
+                        {% if user %}
+                            <li id="but"><button id="who-name" type="button" class="btn btn-default navbar-btn" data-toggle="dropdown" >LOG OUT</button>
+                            </li>
+                        {% else %}
+                            <li id="but"><button id="login" type="button" class="btn btn-default navbar-btn" data-toggle="dropdown">LOGIN</button>
+                            </li>
+                        {% end %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!--
+    {% if user %}
+        <input type="hidden" id="user_state" value="yes" />
+    {% else %}
+        <input type="hidden" id="user_state" value="no" />
+    {% end %} -->
+    <div class='login_signup'>
+        <div id="signup_dropdown">
+            <a href="#" class="dropdown_close"><span class=" div_close glyphicon glyphicon-remove"></span></a>
+            <div class="container container_login_signup">
+                <div class="login-header">
+                    <h3>Sign Up For Free</h3>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <div class="form-group">
+                            <div class="for_label">
+                                <label for="info_email_signup" class="control_label glyphicon glyphicon-envelope">
+                                </label>
+                                <input type="text" name="email" id="info_email_signup" class="form-control" placeholder="Your Email">
+                            </div>
+                            
+                            
+                        </div>
+                        <div class="form-group">
+                            <div class="for_label">
+                                <label for="student_card_signup" class="control_label glyphicon glyphicon-blackboard">
+                                </label>
+                                <input type="text" name="student_card" id="student_card_signup" class="form-control" placeholder="Your Student Card Number">
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="for_label">
+                                <label for="student_id_signup" class="control_label glyphicon glyphicon-credit-card">
+                                </label>
+                                <input type="text" name="student_id" id="student_id_signup" class="form-control" placeholder="Your Student ID">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button  id="verify" class="btn btn-danger btn-lg btn-block">Verify</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row wrong_message">
+                <div class="alert alert-danger showing" id="verify_message">Wrong Email or password.</div>
+            </div>
+        </div>
+        <div id="verify_dropdown">
+            <a href="#" class="dropdown_close"><span class=" div_close glyphicon glyphicon-remove"></span></a>
+            <div class="container container_login_signup">
+                <div class="login-header">
+                    <h3>Sign Up For Free</h3>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-4 col-sm-offset-2">
+                        <div class="for_label">
+                            <label for="name_signup" class="control_label glyphicon glyphicon-user">
+                            </label>
+                            <input type="text" name="username" id="name_signup" class="form-control" placeholder="Your Real name">
+                        </div>
+                        
+                        
+                    </div>
+                    
+                    <div class="form-group col-sm-4">
+                        <div class="for_label">
+                            <label for="password_signup" class="control_label glyphicon glyphicon-asterisk">
+                            </label>
+                            <input type="password" name="password" id="password_signup" class="form-control" placeholder="Password">
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-offset-2 col-sm-4 ">
+                        <div class="for_label">
+                            <label  class="control_label glyphicon glyphicon-asterisk">
+                            </label>
+                            <input type="password" id="password_confirm" name="password_confirm" class="form-control" placeholder="Password Again">
+                        </div>
+                        
+                    </div>
+                    <div class="form-group col-sm-4">
+                        
+                        <button  id="signup_btn" class="btn btn-danger btn-lg btn-block">Sign Up Now!</button>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row wrong_message">
+                <div class="alert alert-danger showing" id="sign_up_message">Wrong Email or password.</div>
+            </div>
+        </div>
+        <div id="find_password_dropdown">
+            <a href="#" class="dropdown_close"><span class=" div_close glyphicon glyphicon-remove"></span></a>
+            <div class="container container_login_signup">
+                <div class="login-header">
+                    <h3>Find Password</h3>
+                </div>
+                <div class="row">
+                    <div class="on_left  col-sm-2 col-sm-offset-2 col-dx-6">
+                        <h3>Step 1:</h3>
+                    </div>
+                    <div class="col-sm-4">
+                        
+                        <div class="form-group">
+                            <div class="for_label">
+                                <label for="info_email_find_password" class="control_label glyphicon glyphicon-envelope">
+                                </label>
+                                <input type="text" name="email" id="info_email_find_password" class="form-control" placeholder="Your Email">
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <div class="form-group">
+                            <div class="for_label ">
+                                <label for="student_card_find_password" class="control_label glyphicon glyphicon-blackboard">
+                                </label>
+                                <input type="text" name="student_card_find_password" id="student_card_find_password" class="form-control" placeholder="Your Student Card Number">
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
+                <div class="row">
+                    <div class="on_left col-sm-2 col-sm-offset-2  col-dx-6">
+                        <h3>Step 2:</h3>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div class="for_label">
+                                <label for="password_find_password" class="control_label glyphicon glyphicon-asterisk">
+                                </label>
+                                <input type="password" name="password_find_password" id="password_find_password" class="form-control" placeholder="Your New Password">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <div class="form-group ">
+                            <div class="for_label">
+                                <label  for="password_confirm_find_password" class="control_label glyphicon glyphicon-asterisk">
+                                </label>
+                                <input type="password" name="password_confirm_find_password" id="password_confirm_find_password" class="form-control" placeholder="Password Again">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button  id="find_password_btn" class="btn btn-danger btn-lg btn-block">I can Remember it this time!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row wrong_message">
+                <div class="alert alert-danger showing" id="change_password_message">Wrong Email or password.</div>
+                
+            </div>
+        </div>
+        <div id="login_div">
+            <a href="#" class="dropdown_close"><span class=" div_close glyphicon glyphicon-remove"></span></a>
+            <div class="container container_login_signup">
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <div class="login-header">
+                            <h3>LOGIN</h3>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="for_label">
+                                <label for="info_email_login" class="control_label glyphicon glyphicon-envelope">
+                                </label>
+                                <input type="text" class="form-control" id="info_email_login" placeholder="Your Email">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="for_label">
+                                <label for="password_login" class="control_label glyphicon glyphicon-asterisk">
+                                </label>
+                                <input type="password" name="password" id="password_login" class="form-control" placeholder="Password(at least six)">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-2 col-sm-offset-4">
+                        <div class="form-group">
+                            <div class="for_label">
+                                <label for="code_login" class="control_label glyphicon glyphicon-comment">
+                                </label>
+                                <input type="code" name="code" id="code_login" class="form-control" placeholder="Code">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-2 ">
+                        <div id="code_pic">
+                            <img  id ="code_img"   onclick="this.src='/auth/code/' + Math.random()"
+                        title ="看不清?点击更换图片" /></div>
+                    </div>
+                    <div class="col-sm-4 col-sm-offset-4 col-xs-12">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id = "login_check" name="rememberme" value="forever" checked="checked"> Remember Me
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 col-sm-offset-4 col-xs-6">
+                        <button id="login_btn"  class="btn btn-danger btn-lg btn-block col-sm-2 ">LOGIN</button>
+                    </div>
+                    <div class="col-sm-2 col-xs-6">
+                        <button id="sign_up_btn" class="btn btn-danger btn-lg btn-block  col-sm-2 ">SIGN UP</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-4" >
+                        <p class="text-right">
+                            <a href="#" class="forgot-password btn btn-link btn-sm no_padding">Forgot Your Password</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row wrong_message">
+                <div class="alert alert-danger showing" id="login_message">Wrong Email or password.</div>
+            </div>
+            {% if state %}
+                <input type="hidden" value="1" id="user_state">
+            {% else %}
+                <input type="hidden" value="0" id="user_state">
+            {% end %}
+            
+        </div>
+    </div>
+    {% block body %}
+    {% end %}
+    {% module footer() %}

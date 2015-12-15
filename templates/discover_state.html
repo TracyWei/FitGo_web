@@ -1,0 +1,34 @@
+{% if content['code']==200 %}
+    {% for item in content['content'] %}
+        <div class="uc-container">
+            <div class="uc-initial-content">
+                <img src="{{item['topic_pic']}}" alt="image" />
+                <span class="icon-certificate"></span>
+            </div>
+            <div class="uc-final-content">
+                <img src="{{item['topic_pic']}}"  alt="image-discover"/>
+                <div class="state_title">
+                    <h4>{{item['topic_title']}}</h4> by
+                    <a href="/user/userinfo/{{item['uid']}}" >{{item['name']}}</a>
+                    <a class="icon_link icon-heart-empty like" value="{{item['topics_id']}}"></a>
+                    <p>{{item['topic_content']}}</p>
+                    <!-- <a class="icon_link  icon-plus">+</a> -->
+                    <p><span class="icon_list icon-heart"></span>
+                        <p id="like_list" value="{{item['topics_id']}}">
+                            {% if len(item['topic_starers']['content']) < 1 %}
+                                赶紧成为第一个赞的人吧~
+                            {% else %}
+                                {% for i in item['topic_starers']['content'] %}
+                                    <a href="/user/userinfo/{{i['uid']}}">{{i['name']}},</a>
+                                {% end %}
+                            {% end %}
+                        </p>
+                    </p>
+                </div>
+                <span class="icon-remove"></span>
+            </div>
+        </div>
+    {% end %}
+{% else %}
+
+{% end %}

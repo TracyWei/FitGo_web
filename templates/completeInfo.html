@@ -1,0 +1,97 @@
+{% extends "header.html" %}
+{% block header %}
+	<link rel="stylesheet" type="text/css" href="{{static_url('css/plans.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{static_url('css/font-awesome.min.css') }}">
+
+{% end %}
+{% block body %}
+	<div class="container moreMargin" id="cominfo">
+		<div class="row picMargin">
+			<div class="col-sm-2 col-xs-6 col-sm-offset-4 form-group picMargin">
+				<img style="width:120px;height:120px"id="personal_img" src="/static/images/pic.svg" class="img-circle">
+			</div>
+			<div class="col-sm-6 col-xs-6 form-group name infoName">
+				<h3 id="yourname">Your name</h3>
+				<div class="margin-por">
+					<a class="back-size" id="changePor" href="/plans/Info/changePor"><span class="icon-camera"></span>修改头像</a><br>
+				</div>
+				<div class="margin-key">
+					<a class="back-size"id="changeKey"><span class="icon-key"></span>修改密码</a>
+				</div>
+				<div class="margin-key">
+					<a id="backPlan" href="/plans" class="back-size"><span class="icon-home"></span>返回我的主页</a>
+				</div>
+			</div>
+			<div class="cropped"></div>
+		</div>
+		<div id="changePassword">
+			<div class="col-sm-4 col-sm-offset-4 form-group">
+				<input type="password" id="old_password" class="inputPassword" placeholder="Old Password">
+			</div>
+			<div class="col-sm-4 col-sm-offset-4 form-group">
+				<input type="password" id="new_password" class="inputPassword" placeholder="New Password">
+			</div>
+			<div class="col-sm-4 col-sm-offset-4 form-group confirmMargin">
+				<button id="confirmPassword" class="btn planbtn">Confirm</button>
+			</div>
+			<div class="col-sm-4 col-sm-offset-4 form-group ">
+				<div id="passwordTip" class="tipBox">Success!</div>
+			</div>
+		</div>
+		<div class="col-sm-4 col-sm-offset-4 form-group">
+			<label>昵称</label>
+			<input type="text" id="user_name" class="inputText" placeholder="Username">
+		</div>
+		<div class="col-sm-4 col-sm-offset-4 form-group">
+			<label>性别</label>
+			<label class="radio-inline">
+				<input type="radio" name="gender" id="male" value="male">男
+			</label>
+			<label class="radio-inline">
+				<input type="radio" name="gender" id="female" value="female">女
+			</label>
+			<label class="radio-inline">
+				<input type="radio" name="gender" id="other" value="other">๑乛◡乛๑其他
+			</label>
+		</div>
+		<div class="col-sm-4 col-sm-offset-4 form-group">
+			<label>学校</label>
+			<input type="text" id="school" class="inputText" placeholder="School">
+		</div>
+		<div class="col-sm-4 col-sm-offset-4 form-group">
+			<label>校区</label>
+			<input type="text" id="campus" class="inputText" placeholder="Campus">
+		</div>
+		<div class="col-sm-4 col-sm-offset-4 form-group">
+			<label>邮箱</label>
+			<input type="email" id="info_email" class="inputText" placeholder="Email" readOnly>
+		</div>
+		<div class="col-sm-4 col-sm-offset-4 form-group">
+			<label>兴趣</label>
+			<div class="bootstrap-tagsinput" id="tagArea">
+				<!-- <div id="tagArea"></div> -->
+				<!-- <span class="tag">jogging<span onclick="closeTag(event)" class="icon-remove" style="font-size:10px;color:#343a63"></span></span> -->
+				<!-- <input type="text" placeholder class="inputTag" onkeydown="moreTags(event)" > -->
+			</div>
+		</div>
+		<div class="col-sm-4 col-sm-offset-4 form-group">
+			<label>手机</label>
+			<input type="text" id="info_phone" class="inputText" placeholder="Phone">
+		</div>
+		<div class="col-sm-4 col-sm-offset-4 form-group">
+			<textarea placeholder="Signature(no more than 20 words)" id="signature" class="inputTextarea" rows="2"></textarea>
+		</div>
+		<div class="col-sm-4 col-sm-offset-4 form-group confirmMargin">
+			<button id="submitInfo" class="btn planbtn">Submit</button>
+		</div>
+		<div class="col-sm-4 col-sm-offset-4 form-group">
+			<div id="infoTip" class="tipBox">Success!</div>
+		</div>
+	</div>
+	{% if user %}
+		<input type="hidden" id="uid" value="{{user.uid}}">
+	{% end %}
+</div>
+<script type="text/javascript" src="{{static_url('js/infochange.js')}}"></script>
+
+{% end %}

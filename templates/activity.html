@@ -1,0 +1,150 @@
+{% extends "header.html" %}
+{% block header %}
+	<link rel="stylesheet" type="text/css" href="{{static_url('css/activity.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{static_url('css/datepicker.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{static_url('css/daterangepicker-bs3.css')}}">
+	{%end%}
+	{% block body %}
+		<div id="time-row">
+			<div id="new-activity" class="container">
+				<div class="col-sm-12 col-xs-12 col-sm-offset-1">
+					<div class="row" id="searche-act">
+						<div class="row">
+							<div class="form-group col-md-1 col-sm-2 col-xs-6 frontSearch">
+								<div class="haveicon">
+									<label class="fontsize-control">搜索活动
+										<span class="icon-arrow-right"></span>
+									</label>
+								</div>
+							</div>
+							<div class="form-group col-lg-2 col-sm-2 col-xs-12 no-padding">
+								<span class="location-absolute icon-map-marker"></span>
+								<select class="form-control styled-select" id="options-search">
+									<option class="option-color">Location</option>
+									<option class="option-color">梅园操场</option>
+									<option class="option-color">桃园操场</option>
+									<option class="option-color">桔园操场</option>
+									<option class="option-color">梅园宿舍</option>
+									<option class="option-color">桃园宿舍</option>
+									<option class="option-color">桔园宿舍</option>
+									<option class="option-color">东门</option>
+									<option class="option-color">钢铁大菊花</option>
+									<option class="option-color">网球场</option>
+									<option class="option-color">桃园篮球场</option>
+									<option class="option-color">图书馆</option>
+									<option class="option-color">大活</option>
+									<option class="option-color">焦廷标馆</option>
+									<option class="option-color">教学楼</option>
+									<option class="option-color">不限</option>
+								</select>
+							</div>
+							<div class="form-group col-lg-2 col-sm-2 col-xs-12 no-padding">
+								<div class="haveicon">
+									<span class="icon-calendar absolute-date"></span>
+
+									<input type="text" class="form-control time-shadow" id="Start-Time-Search" data-date-format="yyyy-mm-dd" placeholder="Start Time" readOnly>
+
+								</div>
+							</div>
+							<div id="specialFliter">
+								<div class="form-group col-lg-2 col-sm-2 col-xs-12 no-padding">
+									<div id="searchText" class="searchClass no-padding">
+										<span class=" icon-magic absolute-info"></span>
+										<input type="text"  id="search_title" class="form-control" placeholder="Title">
+									</div>
+									<button class="actSearch" id="toSearch" type="button"><span class="icon-search btn-search"></span></button>
+								</div>
+								<div class="form-group col-sm-3 col-xs-12 confirmSearch no-padding" >
+									<label for="searchActivity" class="fontsize-control" id="search_btn">
+										<span class="icon-ok" ></span>开始搜索
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row" id="wholeNew">
+						<div class="row" id="new-act">
+								<div class="form-group col-sm-7 col-xs-12 no-padding" >
+									<span class="icon-absolute icon-bullhorn"></span>
+									<input type="text" class="form-control" id="newActivity" placeholder="My Title">
+								</div>
+								<div class="form-group col-sm-3 col-xs-12 time-left no-padding">
+								<label class="fontsize-control" for="newActivity" id="hide-new">
+										<span class="icon-pencil"></span>
+										发起活动</label>
+								</div>	
+						</div>
+						<div class="row" id="after-show">
+								<div class="form-group col-sm-7 col-xs-12 no-padding" id="act-time">
+									<span class="calendar-absolute1 icon-calendar"></span>
+									<input type="text" readonly name="reservation" id="reservation-start" class="form-control time-shadow" value="2015-9-21 - 2015-10-21" />
+								</div>
+								<div class="form-group col-sm-7 col-xs-12 no-padding">
+									<span class="location-absolute icon-map-marker"></span>
+									<select class="form-control styled-select" id="options">
+										<option class="option-color">Location</option>
+										<option class="option-color">梅园操场</option>
+										<option class="option-color">桃园操场</option>
+										<option class="option-color">桔园操场</option>
+										<option class="option-color">梅园宿舍</option>
+										<option class="option-color">桃园宿舍</option>
+										<option class="option-color">桔园宿舍</option>
+										<option class="option-color">东门</option>
+										<option class="option-color">钢铁大菊花</option>
+										<option class="option-color">网球场</option>
+										<option class="option-color">桃园篮球场</option>
+										<option class="option-color">图书馆</option>
+										<option class="option-color">大活</option>
+										<option class="option-color">焦廷标馆</option>
+										<option class="option-color">教学楼</option>
+										<option class="option-color">不限</option>
+									</select>
+								</div>
+								<div class="form-group col-sm-7 col-xs-12 no-padding">
+									<span class="detail-absolute icon-edit"></span>
+									<textarea placeholder="Details" id="activity_detail" class="form-control textareaMargin" rows="10"></textarea>
+								</div>
+								<div class="col-sm-1 col-xs-4" id="submit-btn">
+									<a tabindex="0" class="btn btn-lg btn-danger btn-mine" role="button" data-toggle="popover" data-trigger="click" title="" data-placement="bottom" data-content="" id="alertPaopao">SUBMIT</a>
+								</div>
+								<div class="col-sm-3 col-xs-6" id="youji">
+									<img src="/static/images/1.png">
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 标题 -->
+			<div id="below">
+				<div class="title">
+					<h1>Look at <strong>Our Activities</strong>!</h1>
+				</div>
+				<div class="alert alert-danger alert-dismissable" id="error_message">
+					<button type="button" class="close"  data-dismiss="alert" aria-hidden="true">
+					&times;
+					</button>
+					<div id="error_message_content"></div>
+				</div>
+				<section id="cd-timeline" class="cd-container">
+				</section>
+			</div>
+			<div class="title">
+				<h1>Do you wanna <a onclick="toNew()" class="to-top"><strong>Join Us</strong></a>?
+				</h1>
+			</div>
+			{% if user %}
+				<input type="hidden" id="uid" value="{{user.uid}}">
+			{% end %}
+		</div>
+		<script type="text/javascript" src="{{static_url('js/bootstrap-datepicker.js')}}"></script>
+		<script type="text/javascript" src="{{static_url('js/activity.js')}}"></script>
+		<script type="text/javascript" src="{{static_url('js/moment.min.js')}}"></script>
+		<script type="text/javascript" src="{{static_url('js/daterangepicker.js')}}"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+		$('#reservation-start').daterangepicker(null, function(start, end, label) {
+		console.log(start.toISOString(), end.toISOString(), label);
+		});
+		});
+		</script>
+		{%end%}

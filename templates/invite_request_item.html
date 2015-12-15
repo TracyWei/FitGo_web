@@ -1,0 +1,34 @@
+<table class="table table-hover row">
+                <thead >
+                    <tr>
+                        <th>No.</th>
+                        <th>姓名</th>
+                        <th>项目</th>
+                        <th>地点</th>
+                        <th>时间</th>
+                        <th>性别</th>
+                        <th class="th_width">选项</th>
+                    </tr>
+                </thead>
+{% if content['code'] == 200 %}
+    {% for item in range(len(content['content'])) %}
+        <tbody class="invite_message" id="{{content['content'][item]['_id']}}">
+        <tr>
+            <th scope="row">{{item+1}}</th>
+            <td ><a href="/user/userinfo/{{content['content'][item]['uid_request']}}">{{content['content'][item]['name']}}</td>
+            <td >{{content['content'][item]['fit_item']}}</td>
+            <td >{{content['content'][item]['fit_location']}}</td>
+            <td >{{content['content'][item]['start_time']}}</td>
+            <td >{{content['content'][item]['gender']}}</td>
+            <input type="hidden" class="request_info" value="{{content['content'][item]['uid_request']}}">
+            <td class="invite_message_btn_block btn-group" role="group">
+                <button class="btn btn-info" value="{{content['content'][item]['_id']}}">确认</button>
+                <button class="btn btn-danger" value="{{content['content'][item]['_id']}}">拒绝</butto>
+                </td>
+        </tr>
+        <tbody>
+    {% end %}
+{% else %}
+    <p>{{content['content']}}</p>
+{% end %}
+</table>

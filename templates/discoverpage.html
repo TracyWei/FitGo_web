@@ -1,0 +1,179 @@
+{% extends "header.html" %}
+{% block header %}
+    <link rel="stylesheet" href="{{static_url('css/discover.css') }}">
+    <script src="{{static_url('js/discover-state.js') }}"></script>
+    <script src="{{static_url('js/discover-friend.js') }}"></script>
+    <script src="{{static_url('js/discoverController.js') }}"></script>
+{% end %}
+{% block body %}
+    <div class="container">
+        <div class="discover_state">
+            <div class="latest_state row">
+                <div class="have_icon">
+                    <a class="icon-double-angle-right">
+                    </a>
+                    <a class="icon-double-angle-right">
+                    </a>
+                </div>
+                <div id="discover_state_all" class="grid clearfix">
+                    <div>Oops~</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="title" id="friend_title">
+        <div class="largetext">
+            <p >
+                <a class="btn" href="#friend_title" id="find_btn" >Find</a> your Friend.
+                <a class="btn" href="#friend_title" id="share_btn" >Share</a> your Happiness.
+            </p>
+        </div>
+    </div>
+    <div class="container search_state">
+        <div class='row'>
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="input-group have_icon search_state_group">
+                    <span class="icon icon-search"></span>
+                    <input type="text" class="form-control" aria-label="Search" id="search_state_tag" placeholder="Search State...">
+                    <span class="input-group-addon btn" id="search_state_btn" ><a href="#search_state_list">Go! </a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row find_friend">
+            <div class="col-sm-3 col-sm-offset-1">
+                <div class="row">
+                    <div class="col-sm-12" id="discover_png_1">
+                        <img src="/static/images/discover/3.png">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="row find_friend">
+                    
+                    <div class="have_icon">
+                        <span class="icon  icon-desktop"></span>
+                        <input type="text" class="form-control" aria-label="Search" id="search_user_tag" placeholder="Search by tag...">
+                    </div>
+                    <div class="have_icon">
+                        <span class="icon  icon-user"></span>
+                        <input type="text" class="form-control"  id="search_username" placeholder="昵称">
+                    </div>
+                    <div class=" have_icon">
+                        <span class="icon   icon-home"></span>
+                        <input type="text" class="form-control"  id="search_school" placeholder="School">
+                    </div>
+                    <div class="have_icon">
+                        <span class="icon  icon-map-marker"></span>
+                        <input type="text" class="form-control"  id="search_campus" placeholder="Campus">
+                    </div>
+                    <div class="have_icon">
+                        <span class="icon  icon-group"></span>
+                        <select class="form-control styled-select" id="gender">
+                            <option class="option-color">Gender</option>
+                            <option class="option-color">Female</option>
+                            <option class="option-color">Male</option>
+                            <option class="option-color">Other</option>
+                            <option class="option-color">Unlimited</option>
+                        </select>
+                    </div>
+                    <div >
+                        <button  type="submit" class="btn btn-danger col-sm-12" id="find_friend_btn">Search</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="row">
+                    <div class="col-sm-12" id="discover_png_2">
+                        <img src="/static/images/discover/2.png">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class='row create_state' >
+            <div class="col-sm-5 col-sm-offset-2">
+                <div class="row create_state">
+                    <div class="have_icon">
+                        <span class="create">Create your State: </span>
+                        <span class="icon-camera">
+                            <form  action="/discover/create/state/pic" enctype="multipart/form-data" id="up_img_WU_FILE_1" method='post' onsubmit="return fileupload()">
+                            <input type="file" class="filePrew"  id="up_img_WU_FILE_0" size=3 tabIndex=3 name="file">
+                        </form>
+                        </span>
+                    </div>
+                    <div class="have_icon">
+                        <span class="icon  icon-magic"></span>
+                        <input type="text" class="form-control" id="create_state_title" placeholder="Say something in short...">
+                    </div>
+                    
+                    
+                    
+                    <div class="have_icon">
+                        <span class="icon icon-edit"></span>
+                        <textarea placeholder="Details" id="create_state_detail" class="form-control textareaMargin" rows="8"></textarea>
+                    </div>
+
+                    <div class="wrong_message">
+                        <div class="alert alert-danger showing" id="create_state_title_error">
+                            Please say something as title
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="row">
+                    <div class="col-sm-12 " id="warp">
+                        <form>
+                            <img id="imgShow_WU_FILE_0" width="200"/>
+                        </form>
+                        <!--  <input type="file" id="up_img_WU_FILE_0" placeholder="Say something in short..." /> -->
+                    </div>
+                    <div class="col-sm-12" id="discover_png">
+                        <img src="/static/images/discover/1.png">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <button  type="submit" class="btn btn-danger" id="submit_state_btn">Share</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <div class="container">
+        <div class="discover_state" id="friend_state">
+            
+                <div id="discover_state_friend" class="grid clearfix">
+                    
+                </div>
+            
+        </div>
+    </div>
+    <div class="container">
+            
+        <div class="discover_state" id="search_state_list">
+            
+            <p class="state_name_p">搜索动态结果</p>
+            
+                <div id="discover_state_list" class="grid clearfix">
+                </div>
+            
+        </div>
+    </div>
+    <div class="container">
+        <p class="state_name_p">搜索好友结果</p>
+        <div class="container_friend" id="serach_friend_list">
+            
+        </div>
+    </div>
+
+    <script src="{{static_url('js/jquery.form.js') }}"></script>
+    {%end%}
